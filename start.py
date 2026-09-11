@@ -63,20 +63,21 @@ if __name__ == "__main__":
     Prompts user if no codename is given, and uses an "otw_opendoors" in the user's home directory if no root path given
     """
     if len(sys.argv) != 3:
-        code_name = sanitize_codename(input(
+        code_name = sanitize_codename(
+            input(
                 "Please provide a short, lowercase code name with no spaces or punctuation for the archive: "
                 "\n>> "
-            ))
-        path = input(
-            "Please provide a full path to the working directory: "
-            "\n>> "
+            )
         )
+        path = input("Please provide a full path to the working directory: " "\n>> ")
     else:
         code_name = sanitize_codename(sys.argv[1])
         path = sys.argv[2]
 
-    print(f"Your codename is: {code_name}\n"
-                "(note: If this is different from your input, this is because it has been sanitized for MySQL safety)")
+    print(
+        f"Your codename is: {code_name}\n"
+        "(note: If this is different from your input, this is because it has been sanitized for MySQL safety)"
+    )
 
     banner_text = f"""Starting processing for archive "{code_name}"..."""
     banner = make_banner("=", banner_text)
